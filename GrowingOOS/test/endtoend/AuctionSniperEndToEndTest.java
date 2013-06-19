@@ -1,3 +1,5 @@
+package endtoend;
+
 import org.junit.After;
 import org.junit.Test;
 
@@ -13,10 +15,10 @@ public class AuctionSniperEndToEndTest {
     @Test
     public void sniperJoinsAuctionUntilAuctionCloses() throws Exception {
         auction.startSellingItem();
-        application.startBiddingIn(auction); // why not to call this method 'join'?
+        application.startBiddingIn(auction); // why not to call this method 'join' or smth?
         auction.hasReceivedJoinRequestFromSniper();
         auction.announceClosed();
-        application.showSniperHasLostAuction();
+        application.showsSniperHasLostAuction();
     }
 
     // Additional cleanup
