@@ -50,14 +50,23 @@ public class FakeAuctionServer {
     }
 
     public void hasReceivedJoinRequestFromSniper() throws InterruptedException {
+        /* 1. The test needs to know when a Join message has arrived. We just check
+        whether any message has arrived, since the Sniper will only be sending Join
+        messages to start with; we’ll fill in more detail as we grow the application.
+        This implementation will fail if no message is received within 5 seconds. */
         messageListener.recievesAMessage();
     }
 
     public void announceClosed() throws XMPPException {
+        /* 2. The test needs to be able to simulate the auction announcing when it closes,
+        which is why we held onto the current Chat when it opened. As with the
+        Join request, the fake auction just sends an empty message, since this is
+        the only event we support so far. */
         currentChat.sendMessage(new Message());
     }
 
     public void stop() {
+        /* 3. stop()closes the connection. */
         connection.disconnect();
     }
 
@@ -69,6 +78,9 @@ public class FakeAuctionServer {
         }
 
         public void recievesAMessage() throws InterruptedException {
+            /* 4. The clause is(notNullValue()) uses the Hamcrest matcher syntax. We describe Matchers in
+            "Methods" (page 339); for now, it’s enough to know that this checks that the Listener has received
+            a message within the timeout period. */
             assertThat("Message", messages.poll(5, TimeUnit.SECONDS), is(notNullValue()));
         }
     }
