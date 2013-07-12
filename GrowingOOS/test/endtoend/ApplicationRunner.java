@@ -1,6 +1,6 @@
 package endtoend;
 
-import sun.tools.jar.Main;
+import auctionsniper.Main;
 
 /**
  * User: tflomin
