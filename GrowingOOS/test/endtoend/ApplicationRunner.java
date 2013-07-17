@@ -8,10 +8,7 @@ import auctionsniper.Main;
  * Time: 16:09
  */
 public class ApplicationRunner {
-    public static final String XMPP_HOSTNAME = "TODO";
-
-    public static final String STATUS_JOINING = "JOINING";
-    public static final String STATUS_LOST = "LOST";
+    public static final String XMPP_HOSTNAME = "localhost";
 
     public static final String SNIPER_ID = "sniper";
     public static final String SNIPER_PASSWORD = "1";
@@ -49,13 +46,13 @@ public class ApplicationRunner {
         /* 5. We wait for the status to change to Joining so we know that the application
         has attempted to connect. This assertion says that somewhere in the user
         interface there’s a label that describes the Sniper’s state */
-        driver.showsSniperStatus(STATUS_JOINING);
+        driver.showsSniperStatus(Main.STATUS_JOINING);
     }
 
     public void showsSniperHasLostAuction() {
         /* 6. When the Sniper loses the auction, we expect it to show a Lost status. If this
         doesn’t happen, the driver will throw an exception. */
-        driver.showsSniperStatus(STATUS_LOST);
+        driver.showsSniperStatus(Main.STATUS_LOST);
     }
 
     public void stop() {
