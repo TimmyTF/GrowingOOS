@@ -16,7 +16,7 @@ import java.awt.event.WindowEvent;
  * Date: 12.07.13
  * Time: 16:27
  */
-public class Main {
+public class Main implements AuctionEventListener {
     @SuppressWarnings("unused")
     private Chat notToBeGCd;
 
@@ -53,17 +53,9 @@ public class Main {
         disconnectWhenUICloses(connection);
         final Chat chat = connection.getChatManager().createChat(
                 auctionId(itemId, connection),
-                new MessageListener() {
-                    public void processMessage(Chat aChat, Message message) {
-                        SwingUtilities.invokeLater(new Runnable() {
-                            public void run() {
-                                ui.showStatus(STATUS_LOST);
-                            }
-                        });
-                    }
-                });
-        this.notToBeGCd = chat;
+                new AuctionMessageTranslator(this));
         chat.sendMessage(JOIN_COMMAND_FORMAT);
+        this.notToBeGCd = chat;
     }
 
     private void disconnectWhenUICloses(final XMPPConnection connection) {
@@ -92,5 +84,13 @@ public class Main {
                 ui = new MainWindow();
             }
         });
+    }
+
+    public void auctionClosed() {
+        // TODO
+    }
+
+    public void currentPrice(Integer price, Integer increment) {
+        // TODO
     }
 }

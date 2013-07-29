@@ -10,7 +10,8 @@ import auctionsniper.Main;
 public class ApplicationRunner {
     public static final String XMPP_HOSTNAME = "localhost";
 
-    public static final String SNIPER_XMPP_ID = "sniper";
+//    public static final String SNIPER_XMPP_ID = "sniper";
+    public static final String SNIPER_XMPP_ID = "sniper@localhost/Auction";
     public static final String SNIPER_PASSWORD = "1";
 
     private AuctionSniperDriver driver;

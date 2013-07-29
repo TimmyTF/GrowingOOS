@@ -71,7 +71,7 @@ public class FakeAuctionServer {
         which is why we held onto the current Chat when it opened. As with the
         Join request, the fake auction just sends an empty message, since this is
         the only event we support so far. */
-        currentChat.sendMessage(new Message());
+        currentChat.sendMessage("SOLVersion: 1.1; Event: CLOSE;");
     }
 
     public void reportPrice(int price, int increment, String bidder) throws XMPPException {
