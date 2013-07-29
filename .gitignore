@@ -1,1 +1,4 @@
 out/*
+backup/*
+GrowingOOS/src/auctionsniper/AuctionEventListener.java
+GrowingOOS/src/auctionsniper/AuctionMessageTranslator.java

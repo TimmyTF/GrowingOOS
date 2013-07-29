@@ -1,15 +1,18 @@
 package endtoend;
 
 import auctionsniper.Main;
+import org.hamcrest.Matcher;
 import org.jivesoftware.smack.*;
 import org.jivesoftware.smack.packet.Message;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.anything;
+import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.Is.is;
-import static org.hamcrest.core.IsNull.notNullValue;
 
 /**
  * User: tflomin
@@ -49,12 +52,18 @@ public class FakeAuctionServer {
         return itemId;
     }
 
-    public void hasReceivedJoinRequestFromSniper() throws InterruptedException {
-        /* 1. The test needs to know when a Join message has arrived. We just check
-        whether any message has arrived, since the Sniper will only be sending Join
-        messages to start with; we’ll fill in more detail as we grow the application.
-        This implementation will fail if no message is received within 5 seconds. */
-        messageListener.recievesAMessage();
+    public void hasReceivedJoinRequestFromSniper(String sniperId) throws InterruptedException {
+        receivesAMessageMatching(sniperId, equalTo(Main.JOIN_COMMAND_FORMAT));
+    }
+
+    public void hasReceivedBid(int bid, String sniperId) throws InterruptedException
+    {
+        receivesAMessageMatching(sniperId, equalTo(String.format(Main.BID_COMMAND_FORMAT, bid)));
+    }
+
+    private void receivesAMessageMatching(String sniperId, Matcher<? super String> messageMatcher) throws InterruptedException {
+        messageListener.receivesAMessage(messageMatcher);
+        assertThat(currentChat.getParticipant(), equalTo(sniperId));
     }
 
     public void announceClosed() throws XMPPException {
@@ -63,6 +72,10 @@ public class FakeAuctionServer {
         Join request, the fake auction just sends an empty message, since this is
         the only event we support so far. */
         currentChat.sendMessage(new Message());
+    }
+
+    public void reportPrice(int price, int increment, String bidder) throws XMPPException {
+        currentChat.sendMessage(String.format("SOLVersion: 1.1; Event: PRICE; " + "CurrentPrice: %d; Increment: %d; Bidder: %s;", price, increment, bidder));
     }
 
     public void stop() {
@@ -77,11 +90,11 @@ public class FakeAuctionServer {
             messages.add(message);
         }
 
-        public void recievesAMessage() throws InterruptedException {
-            /* 4. The clause is(notNullValue()) uses the Hamcrest matcher syntax. We describe Matchers in
-            "Methods" (page 339); for now, it’s enough to know that this checks that the Listener has received
-            a message within the timeout period. */
-            assertThat("Message", messages.poll(5, TimeUnit.SECONDS), is(notNullValue()));
+        @SuppressWarnings("unchecked")
+        public void receivesAMessage(Matcher<? super String> messageMatcher) throws InterruptedException {
+            final Message message = messages.poll(5, TimeUnit.SECONDS);
+            assertThat("Message", message, is(notNullValue()));
+            assertThat(message.getBody(), messageMatcher);
         }
     }
 }
