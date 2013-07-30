@@ -10,7 +10,8 @@ import auctionsniper.Main;
 public class ApplicationRunner {
     public static final String XMPP_HOSTNAME = "localhost";
 
-//    public static final String SNIPER_XMPP_ID = "sniper";
+
+    public static final String SNIPER_ID = "sniper";
     public static final String SNIPER_XMPP_ID = "sniper@localhost/Auction";
     public static final String SNIPER_PASSWORD = "1";
 
@@ -28,7 +29,7 @@ public class ApplicationRunner {
                 try {
                     /* 2. To keep things simple at this stage, we’ll assume that we’re only bidding for
                     one item and pass the identifier to main(). */
-                    Main.main(new String[] {XMPP_HOSTNAME, SNIPER_XMPP_ID, SNIPER_PASSWORD, auction.getItemId()});
+                    Main.main(new String[] {XMPP_HOSTNAME, SNIPER_ID, SNIPER_PASSWORD, auction.getItemId()});
                 } catch (Exception e) {
                     /* 3. If main() throws an exception, we just print it out. Whatever test we’re
                     running will fail and we can look for the stack trace in the output. Later,

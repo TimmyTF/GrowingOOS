@@ -21,8 +21,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
  */
 public class FakeAuctionServer {
 
-    public static final String XMPP_HOSTNAME = "localhost"; // TODO: set this name to the XMPP server
-    private static final String AUCTION_PASSWORD = "auction"; // TODO: check what's the real password
+    public static final String XMPP_HOSTNAME = "localhost";
+    private static final String AUCTION_PASSWORD = "auction";
 
     private final String itemId;
     private final XMPPConnection connection;
