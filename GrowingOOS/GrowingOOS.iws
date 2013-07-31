@@ -24,7 +24,9 @@
     <option name="FILTER_BY_CURRENT_PROJECT" value="true" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89345e2b-00d4-4bdf-9220-60d940f771c0" name="Default" comment="jUnit and Hamcrest jars were added to the project" />
+    <list default="true" id="89345e2b-00d4-4bdf-9220-60d940f771c0" name="Default" comment="jUnit and Hamcrest jars were added to the project">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GrowingOOS.iws" afterPath="$PROJECT_DIR$/GrowingOOS.iws" />
+    </list>
     <ignored path="GrowingOOS.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1375172567889" ignored="false" />
