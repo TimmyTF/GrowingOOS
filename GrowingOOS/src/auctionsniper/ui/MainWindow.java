@@ -14,6 +14,10 @@ import java.awt.*;
 public class MainWindow extends JFrame {
     private final JLabel sniperStatus= createLabel(Main.STATUS_JOINING);
 
+    {
+        System.out.println("[DEBUG.MainWindow]: Current status = " + sniperStatus.getText());
+    }
+
     public MainWindow() {
         super("Auction Sniper");
         setName(Main.MAIN_WINDOW_NAME);
@@ -31,6 +35,7 @@ public class MainWindow extends JFrame {
     }
 
     public void showStatus(String status) {
+        System.out.println("[DEBUG.MainWindow]: Current status = " + status);
         sniperStatus.setText(status);
     }
 }

@@ -10,7 +10,6 @@ import java.util.concurrent.TimeUnit;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.anything;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -20,7 +19,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
  * Time: 11:17
  */
 public class FakeAuctionServer {
-
     public static final String XMPP_HOSTNAME = "localhost";
     private static final String AUCTION_PASSWORD = "auction";
 
@@ -38,13 +36,13 @@ public class FakeAuctionServer {
         connection.connect();
         connection.login(String.format(Main.ITEM_ID_AS_LOGIN, itemId), AUCTION_PASSWORD, Main.AUCTION_RESOURCE);
         connection.getChatManager().addChatListener(
-                new ChatManagerListener() {
-                    @Override
-                    public void chatCreated(Chat chat, boolean createdLocally) {
-                        currentChat = chat;
-                        chat.addMessageListener(messageListener);
-                    }
+            new ChatManagerListener() {
+                @Override
+                public void chatCreated(Chat chat, boolean createdLocally) {
+                    currentChat = chat;
+                    chat.addMessageListener(messageListener);
                 }
+            }
         );
     }
 
@@ -56,8 +54,7 @@ public class FakeAuctionServer {
         receivesAMessageMatching(sniperId, equalTo(Main.JOIN_COMMAND_FORMAT));
     }
 
-    public void hasReceivedBid(int bid, String sniperId) throws InterruptedException
-    {
+    public void hasReceivedBid(int bid, String sniperId) throws InterruptedException {
         receivesAMessageMatching(sniperId, equalTo(String.format(Main.BID_COMMAND_FORMAT, bid)));
     }
 
@@ -67,10 +64,6 @@ public class FakeAuctionServer {
     }
 
     public void announceClosed() throws XMPPException {
-        /* 2. The test needs to be able to simulate the auction announcing when it closes,
-        which is why we held onto the current Chat when it opened. As with the
-        Join request, the fake auction just sends an empty message, since this is
-        the only event we support so far. */
         currentChat.sendMessage("SOLVersion: 1.1; Event: CLOSE;");
     }
 
@@ -79,7 +72,6 @@ public class FakeAuctionServer {
     }
 
     public void stop() {
-        /* 3. stop()closes the connection. */
         connection.disconnect();
     }
 
