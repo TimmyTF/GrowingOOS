@@ -8,6 +8,7 @@ package auctionsniper;
 public class AuctionSniper implements AuctionEventListener {
     private final SniperListener sniperListener;
     private final Auction auction;
+    private boolean isWinning = false;
 
     public AuctionSniper(Auction auction, SniperListener sniperListener) {
         this.sniperListener = sniperListener;
@@ -15,16 +16,20 @@ public class AuctionSniper implements AuctionEventListener {
     }
 
     public void auctionClosed() {
-        sniperListener.sniperLost();
+        if (isWinning) {
+            sniperListener.sniperWon();
+        } else {
+            sniperListener.sniperLost();
+        }
     }
 
     public void currentPrice(Integer price, Integer increment, PriceSource priceSource) {
-        auction.bid(price + increment);
-        sniperListener.sniperBidding();
-        // TODO: use priceSource somehow
-    }
-
-    public void sniperLost() {
-        sniperListener.sniperLost();
+        isWinning = priceSource == PriceSource.FromSniper;
+        if (isWinning) {
+            sniperListener.sniperWinning();
+        } else {
+            auction.bid(price + increment);
+            sniperListener.sniperBidding();
+        }
     }
 }

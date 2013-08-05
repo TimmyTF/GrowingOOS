@@ -103,6 +103,10 @@ public class Main {
             showStatus(STATUS_WINNING);
         }
 
+        public void sniperWon() {
+            showStatus(STATUS_WON);
+        }
+
         private void showStatus(final String status) {
             SwingUtilities.invokeLater(new Runnable() {
                 public void run() {

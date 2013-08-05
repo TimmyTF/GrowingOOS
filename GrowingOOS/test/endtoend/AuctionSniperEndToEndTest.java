@@ -14,6 +14,7 @@ public class AuctionSniperEndToEndTest {
 
     @Test
     public void sniperJoinsAuctionUntilAuctionCloses() throws Exception {
+        System.out.println("----------------- New test -----------------");
         auction.startSellingItem();
         application.startBiddingIn(auction);
         auction.hasReceivedJoinRequestFromSniper(ApplicationRunner.SNIPER_XMPP_ID);
@@ -23,6 +24,7 @@ public class AuctionSniperEndToEndTest {
 
     @Test
     public void sniperMakesAHigherBidButLoses() throws Exception {
+        System.out.println("----------------- New test -----------------");
         auction.startSellingItem();
         application.startBiddingIn(auction);
         auction.hasReceivedJoinRequestFromSniper(ApplicationRunner.SNIPER_XMPP_ID);
@@ -35,6 +37,7 @@ public class AuctionSniperEndToEndTest {
 
     @Test
     public void sniperWinsAnAuctionByBiddingHigher() throws Exception {
+        System.out.println("----------------- New test -----------------");
         auction.startSellingItem();
 
         application.startBiddingIn(auction);
