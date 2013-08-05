@@ -14,7 +14,7 @@ import java.awt.event.WindowEvent;
  * Date: 12.07.13
  * Time: 16:27
  */
-public class Main implements SniperListener {
+public class Main {
     @SuppressWarnings("unused")
     private Chat notToBeGCd;
 
@@ -31,7 +31,9 @@ public class Main implements SniperListener {
     public static final String SNIPER_STATUS_NAME = "SNIPER_STATUS_NAME";
     public static final String STATUS_JOINING = "Joining";
     public static final String STATUS_LOST = "Lost";
+    public static final String STATUS_WON = "Won";
     public static final String STATUS_BIDDING = "Bidding";
+    public static final String STATUS_WINNING = "Winning";
 
     public static final String JOIN_COMMAND_FORMAT = "SOLVersion: 1.1; Command: JOIN;";
     public static final String BID_COMMAND_FORMAT = "SOLVersion: 1.1; Command: BID; Price: %d;";
@@ -49,19 +51,15 @@ public class Main implements SniperListener {
 
     private void joinAuction(XMPPConnection connection, String itemId) throws XMPPException {
         disconnectWhenUICloses(connection);
+
         final Chat chat = connection.getChatManager().createChat(auctionId(itemId, connection), null);
-        Auction auction = new Auction() {
-            public void bid(int amount) {
-                try {
-                    chat.sendMessage(String.format(BID_COMMAND_FORMAT, amount));
-                } catch (XMPPException xmppe) {
-                    xmppe.printStackTrace();
-                }
-            }
-        };
-        chat.addMessageListener(new AuctionMessageTranslator(new AuctionSniper(auction, this)));
-        chat.sendMessage(JOIN_COMMAND_FORMAT);
+
         this.notToBeGCd = chat;
+
+        Auction auction = new XMPPAuction(chat);
+        chat.addMessageListener(new AuctionMessageTranslator(connection.getUser(), new AuctionSniper(auction, new SniperStateDisplayer())));
+
+        auction.join();
     }
 
     private void disconnectWhenUICloses(final XMPPConnection connection) {
@@ -92,31 +90,49 @@ public class Main implements SniperListener {
         });
     }
 
-    public void auctionClosed() {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                ui.showStatus(STATUS_LOST);
-            }
-        });
+    public class SniperStateDisplayer implements SniperListener {
+        public void sniperBidding() {
+            showStatus(STATUS_BIDDING);
+        }
+
+        public void sniperLost() {
+            showStatus(STATUS_LOST);
+        }
+
+        public void sniperWinning() {
+            showStatus(STATUS_WINNING);
+        }
+
+        private void showStatus(final String status) {
+            SwingUtilities.invokeLater(new Runnable() {
+                public void run() {
+                    ui.showStatus(status);
+                }
+            });
+        }
     }
 
-    public void currentPrice(Integer price, Integer increment) {
-        // TODO
-    }
+    public static class XMPPAuction implements Auction {
+        private final Chat chat;
 
-    public void sniperLost() {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                ui.showStatus(STATUS_LOST);
-            }
-        });
-    }
+        public XMPPAuction(Chat chat) {
+            this.chat = chat;
+        }
 
-    public void sniperBidding() {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                ui.showStatus(STATUS_BIDDING);
+        public void bid(int amount) {
+            sendMessage(String.format(BID_COMMAND_FORMAT, amount));
+        }
+
+        public void join() {
+            sendMessage(JOIN_COMMAND_FORMAT);
+        }
+
+        private void sendMessage(final String message) {
+            try {
+                chat.sendMessage(message);
+            } catch (XMPPException e) {
+                e.printStackTrace();
             }
-        });
+        }
     }
 }
