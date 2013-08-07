@@ -1,9 +1,9 @@
 package auctionsniper.ui;
 
 import auctionsniper.Main;
+import auctionsniper.SniperSnapshot;
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 import java.awt.*;
 
 /**
@@ -12,30 +12,37 @@ import java.awt.*;
  * Time: 17:32
  */
 public class MainWindow extends JFrame {
-    private final JLabel sniperStatus= createLabel(Main.STATUS_JOINING);
+    private final SnipersTableModel snipers = new SnipersTableModel();
 
-    {
-        System.out.println("[DEBUG.MainWindow]: Current status = " + sniperStatus.getText());
-    }
+    private static final String APPLICATION_TITLE = "Auction Sniper"; // TODO
+    private static final String SNIPERS_TABLE_NAME = "Snipers table"; // TODO
 
     public MainWindow() {
-        super("Auction Sniper");
+        super(APPLICATION_TITLE);
         setName(Main.MAIN_WINDOW_NAME);
-        add(sniperStatus);
+        fillContentPane(makeSnipersTable());
         pack();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }
 
-    private static JLabel createLabel(String initialText) {
-        JLabel result = new JLabel(initialText);
-        result.setName(Main.SNIPER_STATUS_NAME);
-        result.setBorder(new LineBorder(Color.BLACK));
-        return result;
+    private void fillContentPane(JTable snipersTable) {
+        final Container contentPane = getContentPane();
+        contentPane.setLayout(new BorderLayout());
+        contentPane.add(new JScrollPane(snipersTable), BorderLayout.CENTER);
     }
 
-    public void showStatus(String status) {
-        System.out.println("[DEBUG.MainWindow]: Current status = " + status);
-        sniperStatus.setText(status);
+    private JTable makeSnipersTable() {
+        final JTable snipersTable = new JTable(snipers);
+        snipersTable.setName(SNIPERS_TABLE_NAME);
+        return snipersTable;
+    }
+
+    public void showStatusText(String statusText) {
+        snipers.setStatusText(statusText);
+    }
+
+    public void sniperStatusChanged(SniperSnapshot sniperSnapshot, String statusText) {
+        snipers.sniperStatusChanged(sniperSnapshot, statusText);
     }
 }
