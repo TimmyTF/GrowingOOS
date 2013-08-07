@@ -2,6 +2,7 @@ package auctionsniper.ui;
 
 import auctionsniper.Main;
 import auctionsniper.SniperSnapshot;
+import auctionsniper.SniperState;
 
 import javax.swing.table.AbstractTableModel;
 
@@ -11,9 +12,10 @@ import javax.swing.table.AbstractTableModel;
  * Time: 10:48
  */
 public class SnipersTableModel extends AbstractTableModel {
-    private final static SniperSnapshot STARTING_UP = new SniperSnapshot("item-54321", 0, 0);
+    private final static SniperSnapshot STARTING_UP = new SniperSnapshot("item-54321", 0, 0, SniperState.JOINING);
     private String statusText = Main.STATUS_JOINING;
     private SniperSnapshot sniperSnapshot = STARTING_UP;
+    private static String[] STATUS_TEXT = { Main.STATUS_JOINING, Main.STATUS_BIDDING, Main.STATUS_WINNING };
 
     public enum Column {
         ITEM_IDENTIFIER,
@@ -51,9 +53,9 @@ public class SnipersTableModel extends AbstractTableModel {
         fireTableRowsUpdated(0, 0);
     }
 
-    public void sniperStatusChanged(SniperSnapshot newSniperSnapshot, String newStatusText) {
-        sniperSnapshot = newSniperSnapshot;
-        statusText = newStatusText;
+    public void sniperStateChanged(SniperSnapshot newSnapshot) {
+        sniperSnapshot = newSnapshot;
+        statusText = STATUS_TEXT[newSnapshot.state.ordinal()];
         fireTableRowsUpdated(0, 0);
     }
 }

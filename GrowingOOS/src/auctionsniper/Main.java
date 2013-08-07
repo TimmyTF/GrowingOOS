@@ -57,7 +57,7 @@ public class Main {
         this.notToBeGCd = chat;
 
         Auction auction = new XMPPAuction(chat);
-        chat.addMessageListener(new AuctionMessageTranslator(connection.getUser(), new AuctionSniper(auction, new SniperStateDisplayer())));
+        chat.addMessageListener(new AuctionMessageTranslator(connection.getUser(), new AuctionSniper(itemId, auction, new SniperStateDisplayer())));
 
         auction.join();
     }
@@ -91,20 +91,16 @@ public class Main {
     }
 
     public class SniperStateDisplayer implements SniperListener {
-        public void sniperBidding(final SniperSnapshot state) {
+        public void sniperStateChanged(final SniperSnapshot state) {
             SwingUtilities.invokeLater(new Runnable() {
                 public void run() {
-                    ui.sniperStatusChanged(state, STATUS_BIDDING);
+                    ui.sniperStatusChanged(state);
                 }
             });
         }
 
         public void sniperLost() {
             showStatus(STATUS_LOST);
-        }
-
-        public void sniperWinning() {
-            showStatus(STATUS_WINNING);
         }
 
         public void sniperWon() {
