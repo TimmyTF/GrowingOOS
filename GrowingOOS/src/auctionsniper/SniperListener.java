@@ -8,9 +8,5 @@ import java.util.EventListener;
  * Time: 18:39
  */
 public interface SniperListener extends EventListener {
-    void sniperLost();
-
     void sniperStateChanged(SniperSnapshot status);
-
-    void sniperWon();
 }

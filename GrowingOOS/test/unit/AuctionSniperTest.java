@@ -22,30 +22,21 @@ import static auctionsniper.AuctionEventListener.PriceSource.*;
  */
 @RunWith(JMock.class)
 public class AuctionSniperTest {
+    public static final String ITEM_ID = "item-54321";
     private final Mockery context = new Mockery();
     private final Auction auction = context.mock(Auction.class);
     private final SniperListener sniperListener = context.mock(SniperListener.class);
-    private final AuctionSniper sniper = new AuctionSniper("item-54321", auction, sniperListener);
+    private final AuctionSniper sniper = new AuctionSniper(ITEM_ID, auction, sniperListener);
     private final States sniperState = context.states("sniper");
-
-    @Test
-    public void reportLostWhenAuctionCloses() {
-        context.checking(new Expectations() {{
-            one(sniperListener).sniperLost();
-        }});
-
-        sniper.auctionClosed();
-    }
 
     @Test
     public void bidsHigherAndReportsBiddingWhenNewPriceArrives() {
         final int price = 1001;
         final int increment = 25;
         final int bid = price + increment;
-
         context.checking(new Expectations() {{
-            one(auction).bid(price + increment);
-            atLeast(1).of(sniperListener).sniperStateChanged(new SniperSnapshot("item-54321"/*TODO*/, price, bid, SniperState.BIDDING/*TODO*/));
+            one(auction).bid(bid);
+            atLeast(1).of(sniperListener).sniperStateChanged(new SniperSnapshot(ITEM_ID, price, bid, SniperState.BIDDING));
         }});
 
         sniper.currentPrice(price, increment, FromOtherBidder);
@@ -53,50 +44,46 @@ public class AuctionSniperTest {
 
     @Test
     public void reportsIsWinningWhenCurrentPriceComesFromSniper() {
+        allowingSniperBidding();
+        ignoringAuction();
         context.checking(new Expectations() {{
-            ignoring(auction);
-            allowing(sniperListener).sniperStateChanged(with(aSniperThatIs(SniperState.BIDDING)));
-            then(sniperState.is("bidding"));
-            atLeast(1).of(sniperListener).sniperStateChanged(new SniperSnapshot("item-54321", 135, 135, SniperState.WINNING));
+            atLeast(1).of(sniperListener).sniperStateChanged(new SniperSnapshot(ITEM_ID, 135, 135, SniperState.WINNING));
             when(sniperState.is("bidding"));
         }});
+
         sniper.currentPrice(123, 12, FromOtherBidder);
         sniper.currentPrice(135, 45, FromSniper);
     }
 
     @Test
-    public void reportsLostIfAuctionClosesImmediately() {
-        context.checking(new Expectations() {{
-            atLeast(1).of(sniperListener).sniperLost();
-        }});
-        sniper.auctionClosed();
-    }
+    public void reportsLostIfAuctionClosesWhenBidding() {
+        allowingSniperBidding();
+        ignoringAuction();
 
-    @Test public void
-    reportsLostIfAuctionClosesWhenBidding() {
         context.checking(new Expectations() {{
-            ignoring(auction);
-            allowing(sniperListener).sniperStateChanged(with(aSniperThatIs(SniperState.BIDDING)));
-            then(sniperState.is("bidding"));
-            atLeast(1).of(sniperListener).sniperLost();
+            atLeast(1).of(sniperListener).sniperStateChanged(new SniperSnapshot(ITEM_ID, 123, 168, SniperState.LOST));
             when(sniperState.is("bidding"));
         }});
+
         sniper.currentPrice(123, 45, FromOtherBidder);
         sniper.auctionClosed();
     }
 
-    /*@Test
+    @Test
     public void reportsWonIfAuctionClosesWhenWinning() {
+        allowingSniperBidding();
+        allowingSniperWinning();
+        ignoringAuction();
+
         context.checking(new Expectations() {{
-            ignoring(auction);
-//            allowing(sniperListener).sniperWinning();
-            then(sniperState.is("winning"));
-            atLeast(1).of(sniperListener).sniperWon();
+          atLeast(1).of(sniperListener).sniperStateChanged( new SniperSnapshot(ITEM_ID, 135, 135, SniperState.WON));
             when(sniperState.is("winning"));
         }});
-        sniper.currentPrice(123, 45, FromSniper);
+
+        sniper.currentPrice(123, 12, FromOtherBidder);
+        sniper.currentPrice(135, 45, FromSniper);
         sniper.auctionClosed();
-    }*/
+    }
 
     private Matcher<SniperSnapshot> aSniperThatIs(final SniperState state) {
         return new FeatureMatcher<SniperSnapshot, SniperState>(equalTo(state), "sniper that is ", "was") {
@@ -105,5 +92,25 @@ public class AuctionSniperTest {
                 return actual.state;
             }
         };
+    }
+
+    private void allowingSniperBidding() {
+        allowSniperStateChange(SniperState.BIDDING, "bidding");
+    }
+
+    private void allowingSniperWinning() {
+        allowSniperStateChange(SniperState.WINNING, "winning");
+    }
+
+    private void allowSniperStateChange(final SniperState newState, final String oldState) {
+        context.checking(new Expectations() {{
+            allowing(sniperListener).sniperStateChanged(with(aSniperThatIs(newState))); then(sniperState.is(oldState));
+        }});
+    }
+
+    private void ignoringAuction() {
+        context.checking(new Expectations() {{
+            ignoring(auction);
+        }});
     }
 }
