@@ -1,6 +1,7 @@
 package endtoend;
 
 import auctionsniper.Main;
+import auctionsniper.ui.MainWindow;
 
 /**
  * User: tflomin
@@ -33,6 +34,8 @@ public class ApplicationRunner {
         thread.setDaemon(true);
         thread.start();
         driver = new AuctionSniperDriver(1000);
+        driver.hasTitle(MainWindow.APPLICATION_TITLE);
+        driver.hasColumnTitles();
         driver.showsSniperStatus(itemId, 0, 0, Main.STATUS_JOINING);
     }
 

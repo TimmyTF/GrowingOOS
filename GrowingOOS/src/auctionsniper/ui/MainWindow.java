@@ -14,7 +14,7 @@ import java.awt.*;
 public class MainWindow extends JFrame {
     private SnipersTableModel snipers;
 
-    private static final String APPLICATION_TITLE = "Auction Sniper";
+    public static final String APPLICATION_TITLE = "Auction Sniper";
     private static final String SNIPERS_TABLE_NAME = "Snipers table";
 
     public MainWindow(SnipersTableModel snipers) {
