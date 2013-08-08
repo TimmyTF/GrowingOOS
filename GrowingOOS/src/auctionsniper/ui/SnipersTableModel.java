@@ -1,10 +1,12 @@
 package auctionsniper.ui;
 
-import auctionsniper.Main;
 import auctionsniper.SniperSnapshot;
 import auctionsniper.SniperState;
+import com.objogate.exception.Defect;
 
 import javax.swing.table.AbstractTableModel;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * User: tflomin
@@ -13,8 +15,7 @@ import javax.swing.table.AbstractTableModel;
  */
 public class SnipersTableModel extends AbstractTableModel {
     private final static SniperSnapshot STARTING_UP = new SniperSnapshot("item-54321", 0, 0, SniperState.JOINING);
-    private String statusText = Main.STATUS_JOINING;
-    private SniperSnapshot snapshot = STARTING_UP;
+    private List<SniperSnapshot> snapshots = new ArrayList<SniperSnapshot>();
     private final static String[] STATUS_TEXT = {
         "Joining", "Bidding", "Winning", "Lost", "Won"
     };
@@ -64,19 +65,29 @@ public class SnipersTableModel extends AbstractTableModel {
     }
 
     public int getRowCount() {
-        return 1;
+        return snapshots.size();
     }
 
     public Object getValueAt(int rowIndex, int columnIndex) {
-        return Column.at(columnIndex).valueIn(snapshot);
+        return Column.at(columnIndex).valueIn(snapshots.get(rowIndex));
     }
 
     public void sniperStateChanged(SniperSnapshot newSnapshot) {
-        snapshot = newSnapshot;
-        fireTableRowsUpdated(0, 0);
+        for (int i = 0; i < snapshots.size(); i++) {
+            if (newSnapshot.isForSameItemAs(snapshots.get(i))) {
+                snapshots.set(i, newSnapshot);
+                fireTableRowsUpdated(i, i);
+                return;
+            }
+        }
+        throw new Defect("No existing Sniper state for " + newSnapshot.itemId);
     }
 
     public static String textFor(SniperState state) {
         return STATUS_TEXT[state.ordinal()];
+    }
+
+    public void addSniper(SniperSnapshot snapshot) {
+        // TODO
     }
 }
