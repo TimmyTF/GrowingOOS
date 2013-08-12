@@ -23,6 +23,15 @@ public class ApplicationRunner {
     private AuctionSniperDriver driver;
 
     public void startBiddingIn(final FakeAuctionServer... auctions) {
+        startSniper(auctions);
+        for (FakeAuctionServer auction : auctions) {
+            driver.startBiddingFor(auction.getItemId());
+            driver.showsSniperStatus(auction.getItemId(), 0, 0, textFor(SniperState.JOINING));
+        }
+    }
+
+    /*TODO: suspicious method; revisit it if smth won't work(and check the method 'startBiddingIn' as well)*/
+    private void startSniper(final FakeAuctionServer... auctions) {
         Thread thread = new Thread("Test Application") {
             @Override
             public void run() {
@@ -38,9 +47,6 @@ public class ApplicationRunner {
         driver = new AuctionSniperDriver(1000);
         driver.hasTitle(MainWindow.APPLICATION_TITLE);
         driver.hasColumnTitles();
-        for (FakeAuctionServer auction : auctions) {
-            driver.showsSniperStatus(auction.getItemId(), 0, 0, textFor(SniperState.JOINING));
-        }
     }
 
     protected static String[] arguments(FakeAuctionServer... auctions) {

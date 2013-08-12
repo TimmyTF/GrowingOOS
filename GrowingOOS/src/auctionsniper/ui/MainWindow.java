@@ -5,6 +5,8 @@ import auctionsniper.SniperSnapshot;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * User: tflomin
@@ -17,19 +19,22 @@ public class MainWindow extends JFrame {
     public static final String APPLICATION_TITLE = "Auction Sniper";
     private static final String SNIPERS_TABLE_NAME = "Snipers table";
 
+    private final Announcer<UserRequestListener> userRequests = Announcer.to(UserRequestListener.class);
+
     public MainWindow(SnipersTableModel snipers) {
         super(APPLICATION_TITLE);
         this.snipers = snipers;
         setName(Main.MAIN_WINDOW_NAME);
-        fillContentPane(makeSnipersTable());
+        fillContentPane(makeSnipersTable(), makeControls());
         pack();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }
 
-    private void fillContentPane(JTable snipersTable) {
+    private void fillContentPane(JTable snipersTable, JPanel controls) {
         final Container contentPane = getContentPane();
         contentPane.setLayout(new BorderLayout());
+        contentPane.add(controls, BorderLayout.NORTH);
         contentPane.add(new JScrollPane(snipersTable), BorderLayout.CENTER);
     }
 
@@ -41,5 +46,30 @@ public class MainWindow extends JFrame {
 
     public void sniperStatusChanged(SniperSnapshot sniperSnapshot) {
         snipers.sniperStateChanged(sniperSnapshot);
+    }
+
+    private JPanel makeControls() {
+        final JTextField itemIdField = new JTextField();
+
+        JPanel controls = new JPanel(new FlowLayout());
+        itemIdField.setColumns(25);
+        itemIdField.setName(Main.NEW_ITEM_ID_NAME);
+        controls.add(itemIdField);
+
+        JButton joinAuctionButton = new JButton("Join Auction");
+        joinAuctionButton.setName(Main.JOIN_BUTTON_NAME);
+
+        joinAuctionButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                userRequests.announce().joinAuction(itemIdField.getText());
+            }
+        });
+        controls.add(joinAuctionButton);
+
+        return controls;
+    }
+
+    public void addUserRequestListener(UserRequestListener userRequestListener) {
+        userRequests.addListener(userRequestListener);
     }
 }
