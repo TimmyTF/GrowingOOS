@@ -10,6 +10,9 @@
     <bookmark url="file://$PROJECT_DIR$/src/auctionsniper/Main.java" line="107" />
     <bookmark url="file://$PROJECT_DIR$/src/auctionsniper/Main.java" line="108" />
     <bookmark url="file://$PROJECT_DIR$/src/auctionsniper/Main.java" line="109" />
+    <bookmark url="file://$PROJECT_DIR$/test/unit/SnipersTableModelTest.java" line="60" />
+    <bookmark url="file://$PROJECT_DIR$/test/unit/SnipersTableModelTest.java" line="61" />
+    <bookmark url="file://$PROJECT_DIR$/test/unit/SnipersTableModelTest.java" line="62" />
     <bookmark url="file://$PROJECT_DIR$/test/unit/SnipersTableModelTest.java" line="63" />
     <bookmark url="file://$PROJECT_DIR$/test/unit/SnipersTableModelTest.java" line="64" />
     <bookmark url="file://$PROJECT_DIR$/test/unit/SnipersTableModelTest.java" line="65" />
@@ -19,10 +22,7 @@
     <bookmark url="file://$PROJECT_DIR$/test/unit/SnipersTableModelTest.java" line="69" />
     <bookmark url="file://$PROJECT_DIR$/test/unit/SnipersTableModelTest.java" line="70" />
     <bookmark url="file://$PROJECT_DIR$/test/unit/SnipersTableModelTest.java" line="71" />
-    <bookmark url="file://$PROJECT_DIR$/test/unit/SnipersTableModelTest.java" line="72" />
-    <bookmark url="file://$PROJECT_DIR$/test/unit/SnipersTableModelTest.java" line="73" />
-    <bookmark url="file://$PROJECT_DIR$/test/unit/SnipersTableModelTest.java" line="74" />
-    <bookmark url="file://$PROJECT_DIR$/test/unit/SnipersTableModelTest.java" line="62" />
+    <bookmark url="file://$PROJECT_DIR$/test/unit/SnipersTableModelTest.java" line="60" />
   </component>
   <component name="BuildServerSettings">
     <option name="LOGIN" value="" />
@@ -49,20 +49,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89345e2b-00d4-4bdf-9220-60d940f771c0" name="Default" comment="jUnit and Hamcrest jars were added to the project">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/endtoend/ApplicationRunner.java" afterPath="$PROJECT_DIR$/test/endtoend/ApplicationRunner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/endtoend/AuctionSniperDriver.java" afterPath="$PROJECT_DIR$/test/endtoend/AuctionSniperDriver.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/endtoend/AuctionSniperEndToEndTest.java" afterPath="$PROJECT_DIR$/test/endtoend/AuctionSniperEndToEndTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/endtoend/FakeAuctionServer.java" afterPath="$PROJECT_DIR$/test/endtoend/FakeAuctionServer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GrowingOOS.iws" afterPath="$PROJECT_DIR$/GrowingOOS.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/auctionsniper/Main.java" afterPath="$PROJECT_DIR$/src/auctionsniper/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/auctionsniper/ui/SnipersTableModel.java" afterPath="$PROJECT_DIR$/src/auctionsniper/ui/SnipersTableModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/unit/SnipersTableModelTest.java" afterPath="$PROJECT_DIR$/test/unit/SnipersTableModelTest.java" />
     </list>
     <ignored path="GrowingOOS.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1375860309231" ignored="false" />
-    <file path="/a.dummy" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1375962291509" ignored="false" />
-    <file path="/Main.java" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1375967058838" ignored="false" />
-    <file path="/ApplicationRunner.java" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1375958601150" ignored="false" />
+    <file path="/Dummy.txt" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1376296712616" ignored="false" />
+    <file path="/a.dummy" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1376297188197" ignored="false" />
+    <file path="/Main.java" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1376293329307" ignored="false" />
+    <file path="/ApplicationRunner.java" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1376292606987" ignored="false" />
     <file path="D:/DataConsistency/test/endtoend/EndToEndTest.java" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1373633334038" ignored="false" />
     <file path="D:/DataConsistency/test/unit/TestByteParse.java" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1373639491532" ignored="false" />
     <file path="F:/Workspace/Netinvestor/MiddleOffice/src/report_connector/groupsCfg.xml" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1374068712564" ignored="false" />
@@ -80,7 +77,7 @@
     <file path="/ConnectorServerImpl.java" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1373896604739" ignored="false" />
     <file path="F:/Workspace/Netinvestor/MiddleOffice/src/report_connector/src/ru/mfd/ni/report/connector/Connector.java" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1373896886277" ignored="false" />
     <file path="/Connector.java" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1373896771562" ignored="false" />
-    <file path="/fragment.java" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1375965786079" ignored="false" />
+    <file path="/fragment.java" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1376294009862" ignored="false" />
     <file path="/MainWindow.java" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1375949638430" ignored="false" />
     <file path="/FakeAuctionServer.java" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1375277174618" ignored="false" />
     <file path="/SchedulerFileTask.java" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1374068641863" ignored="false" />
@@ -90,7 +87,7 @@
     <file path="F:/Workspace/Netinvestor/MiddleOffice/src/nimo/JavaSource/ru/mfd/nimo/actions/SchedulerFileAction.java" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1374061318004" ignored="false" />
     <file path="/SchedulerFileAction.java" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1374061308769" ignored="false" />
     <file path="F:/Workspace/Netinvestor/MiddleOffice/src/report_connector/src/ru/mfd/ni/report/connector/SchedulerFileTask.java" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1374068642660" ignored="false" />
-    <file path="/AuctionSniperEndToEndTest.java" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1375958386850" ignored="false" />
+    <file path="/AuctionSniperEndToEndTest.java" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1376306558919" ignored="false" />
     <file path="F:/Workspace/Netinvestor/MiddleOffice/src/report_connector/logs/connector.log" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1374068714517" ignored="false" />
     <file path="F:/Workspace/Netinvestor/NiApiJava/src/ru/mfd/api/examples/GetStrategyHistory.java" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1374738782594" ignored="false" />
     <file path="F:/Workspace/Netinvestor/server/catalog.xml" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1374738888418" ignored="false" />
@@ -123,7 +120,7 @@
     <file path="F:/Workspace/NetinvestorPlayground/server/build.xml" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1375693863078" ignored="false" />
     <file path="F:/Workspace/NetinvestorPlayground/server/src/ru/mfd/trade/MoneyDemandProcessor.java" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1375693863078" ignored="false" />
     <file path="F:/Workspace/NetinvestorPlayground/server/NiHost.ipr" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1375695427528" ignored="false" />
-    <file path="/SnipersTableModel.java" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1375970898656" ignored="false" />
+    <file path="/SnipersTableModel.java" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1376294612997" ignored="false" />
     <file path="/AuctionSniperDriver.java" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1375966426527" ignored="false" />
     <file path="/SniperState.java" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1375779151306" ignored="false" />
     <file path="/SnipersTableModelTest.java" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1375973024399" ignored="false" />
@@ -137,6 +134,8 @@
     <file path="F:/Workspace/p130412/NetInvestor/server/NiHost.ipr" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1375860581627" ignored="false" />
     <file path="F:/Workspace/p130412/NetInvestor/TestFramework/src/tests/xmls/testresults/all-results.xml" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1375860737559" ignored="false" />
     <file path="/SniperSnapshot.java" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1375877493942" ignored="false" />
+    <file path="F:/Documents and Settings/tflomin/Мои документы/Dropbox/Edu/Java/DesignPatterns/src/second/edition/miscellaneous/MethodArgumentsPlayground.java" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1376292904543" ignored="false" />
+    <file path="/MethodArgumentsPlayground.java" changelist="89345e2b-00d4-4bdf-9220-60d940f771c0" time="1376292888874" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,20 +199,11 @@
       <file leaf-file-name="SnipersTableModel.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/auctionsniper/ui/SnipersTableModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="0" selection-start="2390" selection-end="2390" vertical-scroll-proportion="0.0">
+            <state line="85" column="73" selection-start="2432" selection-end="2432" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#525#541#0" expanded="true" />
+                <element signature="e#410#426#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SniperSnapshot.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/auctionsniper/SniperSnapshot.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="5" selection-start="1622" selection-end="1622" vertical-scroll-proportion="0.0">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -221,7 +211,7 @@
       <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/auctionsniper/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="35" selection-start="2938" selection-end="2938" vertical-scroll-proportion="0.0">
+            <state line="73" column="21" selection-start="2696" selection-end="2696" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#459#486#0" expanded="true" />
@@ -240,34 +230,17 @@
       <file leaf-file-name="AuctionSniperDriver.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/endtoend/AuctionSniperDriver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="0" selection-start="990" selection-end="990" vertical-scroll-proportion="0.0">
+            <state line="1" column="12" selection-start="18" selection-end="18" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AuctionSniperEndToEndTest.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="AuctionSniperEndToEndTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/endtoend/AuctionSniperEndToEndTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="30" selection-start="2958" selection-end="2958" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FakeAuctionServer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/endtoend/FakeAuctionServer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="88" column="69" selection-start="3317" selection-end="3317" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1318#1582#0" expanded="true" />
-                <element signature="e#1567#1568#0" expanded="true" />
-                <element signature="e#2904#2913#0" expanded="true" />
-                <element signature="e#3038#3068#0" expanded="true" />
-              </folding>
+            <state line="14" column="9" selection-start="408" selection-end="408" vertical-scroll-proportion="0.2801014">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -275,18 +248,16 @@
       <file leaf-file-name="ApplicationRunner.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/endtoend/ApplicationRunner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="28" selection-start="812" selection-end="812" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="30" column="95" selection-start="875" selection-end="875" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SnipersTableModelTest.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SnipersTableModelTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/unit/SnipersTableModelTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="127" selection-start="2094" selection-end="2094" vertical-scroll-proportion="0.44270834">
+            <state line="59" column="4" selection-start="1905" selection-end="1905" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -321,15 +292,15 @@
         <option value="$PROJECT_DIR$/src/auctionsniper/SniperListener.java" />
         <option value="$PROJECT_DIR$/test/unit/AuctionSniperTest.java" />
         <option value="$PROJECT_DIR$/src/auctionsniper/ui/MainWindow.java" />
-        <option value="$PROJECT_DIR$/test/endtoend/AuctionSniperEndToEndTest.java" />
-        <option value="$PROJECT_DIR$/test/endtoend/ApplicationRunner.java" />
         <option value="$PROJECT_DIR$/test/endtoend/SingleMessageListener.java" />
         <option value="$PROJECT_DIR$/test/endtoend/FakeAuctionServer.java" />
-        <option value="$PROJECT_DIR$/src/auctionsniper/Main.java" />
         <option value="$PROJECT_DIR$/test/endtoend/AuctionSniperDriver.java" />
-        <option value="$PROJECT_DIR$/src/auctionsniper/ui/SnipersTableModel.java" />
         <option value="$PROJECT_DIR$/src/auctionsniper/SniperSnapshot.java" />
+        <option value="$PROJECT_DIR$/test/endtoend/ApplicationRunner.java" />
+        <option value="$PROJECT_DIR$/src/auctionsniper/Main.java" />
         <option value="$PROJECT_DIR$/test/unit/SnipersTableModelTest.java" />
+        <option value="$PROJECT_DIR$/src/auctionsniper/ui/SnipersTableModel.java" />
+        <option value="$PROJECT_DIR$/test/endtoend/AuctionSniperEndToEndTest.java" />
       </list>
     </option>
   </component>
@@ -368,16 +339,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GrowingOOS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -474,19 +436,28 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GrowingOOS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Modules" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="132" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="132" />
     <property name="project.structure.proportion" value="0.15" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="132" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="136" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
-    <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="136" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="D:/TeamCityPlugin/samplePlugin-src" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="132" />
@@ -498,50 +469,23 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
     <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.searchVisible" value="true" />
   </component>
-  <component name="RunManager" selected="JUnit.SnipersTableModelTest.setsSniperValuesInColumns">
-    <configuration default="false" name="SnipersTableModelTest" type="JUnit" factoryName="JUnit" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="unit.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="GrowingOOS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="unit" />
-      <option name="MAIN_CLASS_NAME" value="unit.SnipersTableModelTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="AuctionSniperEndToEndTest.sniperBidsForMultipleItems" type="JUnit" factoryName="JUnit" temporary="true">
+  <component name="RunManager" selected="JUnit.AuctionSniperEndToEndTest.sniperJoinsAuctionUntilAuctionCloses">
+    <configuration default="false" name="AuctionSniperEndToEndTest.sniperJoinsAuctionUntilAuctionCloses" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="endtoend.*" />
@@ -553,7 +497,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="endtoend" />
       <option name="MAIN_CLASS_NAME" value="endtoend.AuctionSniperEndToEndTest" />
-      <option name="METHOD_NAME" value="sniperBidsForMultipleItems" />
+      <option name="METHOD_NAME" value="sniperJoinsAuctionUntilAuctionCloses" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -572,6 +516,34 @@
       </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="AuctionSniperEndToEndTest.sniperMakesAHigherBidButLoses" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="endtoend.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="GrowingOOS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="endtoend" />
+      <option name="MAIN_CLASS_NAME" value="endtoend.AuctionSniperEndToEndTest" />
+      <option name="METHOD_NAME" value="sniperMakesAHigherBidButLoses" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
@@ -603,20 +575,20 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="false" name="SnipersTableModelTest.notifiesListenersWhenAddingASniper" type="JUnit" factoryName="JUnit" temporary="true">
+    <configuration default="false" name="AuctionSniperEndToEndTest" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="unit.*" />
+          <option name="PATTERN" value="endtoend.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <module name="GrowingOOS" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="unit" />
-      <option name="MAIN_CLASS_NAME" value="unit.SnipersTableModelTest" />
-      <option name="METHOD_NAME" value="notifiesListenersWhenAddingASniper" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="endtoend" />
+      <option name="MAIN_CLASS_NAME" value="endtoend.AuctionSniperEndToEndTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -627,11 +599,17 @@
       </option>
       <envs />
       <patterns />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="false" name="SnipersTableModelTest.setsSniperValuesInColumns" type="JUnit" factoryName="JUnit" temporary="true">
+    <configuration default="false" name="SnipersTableModelTest" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="unit.*" />
@@ -643,8 +621,8 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="unit" />
       <option name="MAIN_CLASS_NAME" value="unit.SnipersTableModelTest" />
-      <option name="METHOD_NAME" value="setsSniperValuesInColumns" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -673,6 +651,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -699,19 +690,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -751,19 +729,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.SnipersTableModelTest" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.AuctionSniperEndToEndTest.sniperBidsForMultipleItems" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.AuctionSniperEndToEndTest.sniperJoinsAuctionUntilAuctionCloses" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.AuctionSniperEndToEndTest.sniperMakesAHigherBidButLoses" />
       <item index="2" class="java.lang.String" itemvalue="JUnit.AuctionSniperEndToEndTest.sniperWinsAnAuctionByBiddingHigher" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.SnipersTableModelTest.notifiesListenersWhenAddingASniper" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.SnipersTableModelTest.setsSniperValuesInColumns" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.AuctionSniperEndToEndTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.SnipersTableModelTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.SnipersTableModelTest.setsSniperValuesInColumns" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.SnipersTableModelTest.notifiesListenersWhenAddingASniper" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.AuctionSniperEndToEndTest.sniperBidsForMultipleItems" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.AuctionSniperEndToEndTest.sniperJoinsAuctionUntilAuctionCloses" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.AuctionSniperEndToEndTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.SnipersTableModelTest" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.AuctionSniperEndToEndTest.sniperWinsAnAuctionByBiddingHigher" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.SnipersTableModelTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.AuctionSniperEndToEndTest.sniperMakesAHigherBidButLoses" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -818,7 +796,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.53865033" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41349694" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2981595" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TeamCity" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.65889573" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
@@ -832,8 +810,8 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24797407" sideWeight="0.4613497" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33006135" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24797407" sideWeight="0.26871166" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.64662576" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -907,20 +885,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$PROJECT_DIR$/../lib/windowlicker-swing-DEV.jar!/com/objogate/wl/swing/driver/table/Cell.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="28" selection-start="379" selection-end="379" vertical-scroll-proportion="-7.48">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/auctionsniper/SniperState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="111" selection-start="563" selection-end="563" vertical-scroll-proportion="0.6463878">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/auctionsniper/SniperListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="1" selection-start="56" selection-end="56" vertical-scroll-proportion="0.064638786">
@@ -935,20 +899,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/unit/AuctionMessageTranslatorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="4" selection-start="435" selection-end="435" vertical-scroll-proportion="0.14107884">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/unit/AuctionSniperTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="22" selection-start="969" selection-end="969" vertical-scroll-proportion="0.6162047">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/auctionsniper/ui/MainWindow.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="41" column="16" selection-start="1166" selection-end="1166" vertical-scroll-proportion="0.0">
@@ -956,16 +906,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/endtoend/AuctionSniperDriver.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.6.0_41/src.zip!/javax/swing/event/TableModelListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="0" selection-start="990" selection-end="990" vertical-scroll-proportion="0.0">
+        <state line="20" column="17" selection-start="436" selection-end="436" vertical-scroll-proportion="0.33203125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.6.0_41/src.zip!/javax/swing/table/AbstractTableModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="272" column="16" selection-start="8740" selection-end="8740" vertical-scroll-proportion="0.33333334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/AuctionMessageTranslatorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="15" selection-start="855" selection-end="855" vertical-scroll-proportion="0.33203125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/AuctionSniperTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="22" selection-start="969" selection-end="969" vertical-scroll-proportion="0.38278145">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/endtoend/FakeAuctionServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="69" selection-start="3317" selection-end="3317" vertical-scroll-proportion="0.0">
+        <state line="35" column="16" selection-start="1068" selection-end="1068" vertical-scroll-proportion="0.33333334">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1318#1582#0" expanded="true" />
@@ -976,9 +947,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/auctionsniper/SniperState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="66" selection-start="227" selection-end="227" vertical-scroll-proportion="0.17325228">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/auctionsniper/SniperSnapshot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="5" selection-start="1622" selection-end="1622" vertical-scroll-proportion="1.0773131">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/auctionsniper/ui/SnipersTableModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="85" column="73" selection-start="2432" selection-end="2432" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#410#426#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/auctionsniper/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="35" selection-start="2938" selection-end="2938" vertical-scroll-proportion="0.0">
+        <state line="73" column="21" selection-start="2696" selection-end="2696" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#459#486#0" expanded="true" />
@@ -993,47 +988,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/endtoend/ApplicationRunner.java">
+    <entry file="file://$PROJECT_DIR$/test/endtoend/AuctionSniperDriver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="28" selection-start="812" selection-end="812" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/auctionsniper/SniperSnapshot.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="5" selection-start="1622" selection-end="1622" vertical-scroll-proportion="0.0">
+        <state line="1" column="12" selection-start="18" selection-end="18" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/endtoend/AuctionSniperEndToEndTest.java">
+    <entry file="file://$PROJECT_DIR$/test/endtoend/ApplicationRunner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="30" selection-start="2958" selection-end="2958" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/auctionsniper/ui/SnipersTableModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="0" selection-start="2390" selection-end="2390" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#525#541#0" expanded="true" />
-          </folding>
+        <state line="30" column="95" selection-start="875" selection-end="875" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/unit/SnipersTableModelTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="127" selection-start="2094" selection-end="2094" vertical-scroll-proportion="0.44270834">
+        <state line="59" column="4" selection-start="1905" selection-end="1905" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/endtoend/AuctionSniperEndToEndTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="9" selection-start="408" selection-end="408" vertical-scroll-proportion="0.2801014">
+          <folding />
         </state>
       </provider>
     </entry>

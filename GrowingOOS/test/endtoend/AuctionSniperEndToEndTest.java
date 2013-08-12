@@ -13,13 +13,14 @@ public class AuctionSniperEndToEndTest {
     private final FakeAuctionServer auction2 = new FakeAuctionServer("item-65432");
     private final ApplicationRunner application = new ApplicationRunner();
 
+    /*TODO: заставить эти 2 теста срабатывать*/
     @Test
     public void sniperJoinsAuctionUntilAuctionCloses() throws Exception {
         System.out.println("----------------- New test -----------------");
 
         auction.startSellingItem();
 
-        application.startBiddingIn(auction, null/*TODO*/);
+        application.startBiddingIn(auction);
         auction.hasReceivedJoinRequestFrom(ApplicationRunner.SNIPER_XMPP_ID);
 
         auction.announceClosed();
@@ -33,7 +34,7 @@ public class AuctionSniperEndToEndTest {
 
         auction.startSellingItem();
 
-        application.startBiddingIn(auction, null/*TODO*/);
+        application.startBiddingIn(auction);
         auction.hasReceivedJoinRequestFrom(ApplicationRunner.SNIPER_XMPP_ID);
 
         auction.reportPrice(1000, 98, "other bidder");
@@ -51,7 +52,7 @@ public class AuctionSniperEndToEndTest {
 
         auction.startSellingItem();
 
-        application.startBiddingIn(auction, null/*TODO*/);
+        application.startBiddingIn(auction);
         auction.hasReceivedJoinRequestFrom(ApplicationRunner.SNIPER_XMPP_ID);
 
         auction.reportPrice(1000, 98, "other bidder");

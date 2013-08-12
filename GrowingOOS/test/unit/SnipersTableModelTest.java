@@ -1,8 +1,6 @@
 package unit;
 
-import auctionsniper.Main;
 import auctionsniper.SniperSnapshot;
-import auctionsniper.SniperState;
 import auctionsniper.ui.SnipersTableModel;
 import org.hamcrest.Matcher;
 import org.jmock.Expectations;
@@ -60,7 +58,6 @@ public class SnipersTableModelTest {
         assertRowMatchesSnapshot(0, joining);
     }
 
-    // TODO: этот тест падает; в тексте нихуя нет кода, который заставит всё это дерьмо работать; продолжать чтение со стр. 205
     @Test
     public void setsSniperValuesInColumns() {
         SniperSnapshot joining = SniperSnapshot.joining("item id");

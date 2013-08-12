@@ -14,7 +14,6 @@ import java.util.List;
  * Time: 10:48
  */
 public class SnipersTableModel extends AbstractTableModel {
-    private final static SniperSnapshot STARTING_UP = new SniperSnapshot("item-54321", 0, 0, SniperState.JOINING);
     private List<SniperSnapshot> snapshots = new ArrayList<SniperSnapshot>();
     private final static String[] STATUS_TEXT = {
         "Joining", "Bidding", "Winning", "Lost", "Won"
@@ -73,14 +72,18 @@ public class SnipersTableModel extends AbstractTableModel {
     }
 
     public void sniperStateChanged(SniperSnapshot newSnapshot) {
+        int row = rowMatching(newSnapshot);
+        snapshots.set(row, newSnapshot);
+        fireTableRowsUpdated(row, row);
+    }
+
+    private int rowMatching(SniperSnapshot snapshot) {
         for (int i = 0; i < snapshots.size(); i++) {
-            if (newSnapshot.isForSameItemAs(snapshots.get(i))) {
-                snapshots.set(i, newSnapshot);
-                fireTableRowsUpdated(i, i);
-                return;
+            if (snapshot.isForSameItemAs(snapshots.get(i))) {
+                return i;
             }
         }
-        throw new Defect("No existing Sniper state for " + newSnapshot.itemId);
+        throw new Defect("Cannot find match for " + snapshot);
     }
 
     public static String textFor(SniperState state) {
@@ -88,6 +91,8 @@ public class SnipersTableModel extends AbstractTableModel {
     }
 
     public void addSniper(SniperSnapshot snapshot) {
-        // TODO
+        snapshots.add(snapshot);
+        int row = snapshots.size() - 1;
+        fireTableRowsInserted(row, row);
     }
 }
