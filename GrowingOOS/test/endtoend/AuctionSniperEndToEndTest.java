@@ -13,7 +13,6 @@ public class AuctionSniperEndToEndTest {
     private final FakeAuctionServer auction2 = new FakeAuctionServer("item-65432");
     private final ApplicationRunner application = new ApplicationRunner();
 
-    /*TODO: заставить эти 2 теста срабатывать*/
     @Test
     public void sniperJoinsAuctionUntilAuctionCloses() throws Exception {
         System.out.println("----------------- New test -----------------");
@@ -25,7 +24,7 @@ public class AuctionSniperEndToEndTest {
 
         auction.announceClosed();
 //        application.showsSniperHasLostAuction(1000, 1100);
-        application.showsSniperHasLostAuction(0, 0);
+        application.showsSniperHasLostAuction(auction, 0, 0);
     }
 
     @Test
@@ -43,7 +42,7 @@ public class AuctionSniperEndToEndTest {
         auction.hasReceivedBid(1098, ApplicationRunner.SNIPER_XMPP_ID);
 
         auction.announceClosed();
-        application.showsSniperHasLostAuction(1000, 1098);
+        application.showsSniperHasLostAuction(auction, 1000, 1098);
     }
 
     @Test
