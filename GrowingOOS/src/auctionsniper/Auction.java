@@ -1,14 +1,8 @@
 package auctionsniper;
 
-/**
- * User: tflomin
- * Date: 30.07.13
- * Time: 11:40
- */
 public interface Auction {
-    void bid(int price);
 
-    void join();
-
-    void addAuctionEventListener(AuctionEventListener listener);
+  void join();
+  void bid(int amount);
+  void addAuctionEventListener(AuctionEventListener listener);
 }

@@ -1,12 +1,7 @@
 package auctionsniper;
 
-import auctionsniper.ui.UserRequestListener;
+import auctionsniper.UserRequestListener.Item;
 
-/**
- * User: tflomin
- * Date: 13.08.13
- * Time: 16:02
- */
 public interface AuctionHouse {
-    Auction auctionFor(UserRequestListener.Item item);
+  Auction auctionFor(Item item); 
 }

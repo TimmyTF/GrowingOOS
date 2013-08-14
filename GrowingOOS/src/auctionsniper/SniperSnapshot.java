@@ -1,79 +1,63 @@
 package auctionsniper;
 
-/**
- * User: tflomin
- * Date: 06.08.13
- * Time: 12:12
- */
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 public class SniperSnapshot {
-    public final String itemId;
-    public final int lastPrice;
-    public final int lastBid;
-    public final SniperState state;
+  public final String itemId;
+  public final int lastPrice;
+  public final int lastBid;
+  public final SniperState state;
+  
+  public SniperSnapshot(String itemId, int lastPrice, int lastBid, SniperState state) {
+    this.itemId = itemId;
+    this.lastPrice = lastPrice;
+    this.lastBid = lastBid;
+    this.state = state;
+  }
+  
+  @Override
+  public boolean equals(Object obj) {
+    return EqualsBuilder.reflectionEquals(this, obj);
+  }
+  @Override
+  public int hashCode() {
+    return HashCodeBuilder.reflectionHashCode(this);
+  }
+  @Override
+  public String toString() {
+    return ToStringBuilder.reflectionToString(this);
+  }
 
-    public SniperSnapshot(String itemId, int lastPrice, int lastBid, SniperState sniperState) {
-        this.itemId = itemId;
-        this.lastPrice = lastPrice;
-        this.lastBid = lastBid;
-        this.state = sniperState;
-    }
+  public static SniperSnapshot joining(String itemId) {
+    return new SniperSnapshot(itemId, 0, 0, SniperState.JOINING);
+  }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+  public SniperSnapshot bidding(int newLastPrice, int newLastBid) {
+    return new SniperSnapshot(itemId, newLastPrice, newLastBid, SniperState.BIDDING);
+  }
 
-        SniperSnapshot that = (SniperSnapshot) o;
+  public SniperSnapshot winning(int newLastPrice) {
+    return new SniperSnapshot(itemId, newLastPrice, lastBid, SniperState.WINNING);
+  }
 
-        if (lastBid != that.lastBid) return false;
-        if (lastPrice != that.lastPrice) return false;
-        if (itemId != null ? !itemId.equals(that.itemId) : that.itemId != null) return false;
+  public SniperSnapshot losing(int newLastPrice) {
+    return new SniperSnapshot(itemId, newLastPrice, lastBid, SniperState.LOSING);
+  }
 
-        return true;
-    }
+  public SniperSnapshot closed() {
+    return new SniperSnapshot(itemId, lastPrice, lastBid, state.whenAuctionClosed());
+  }
 
-    public SniperSnapshot bidding(int newLastPrice, int newLastBid) {
-        return new SniperSnapshot(itemId, newLastPrice, newLastBid, SniperState.BIDDING);
-    }
+  public SniperSnapshot failed() {
+    return new SniperSnapshot(itemId, 0, 0, SniperState.FAILED);
+  }
 
-    public SniperSnapshot winning(int newLastPrice) {
-        return new SniperSnapshot(itemId, newLastPrice, lastBid, SniperState.WINNING);
-    }
+  public boolean isForSameItemAs(SniperSnapshot sniperSnapshot) {
+    return itemId.equals(sniperSnapshot.itemId);
+  }
 
-    public static SniperSnapshot joining(String itemId) {
-        return new SniperSnapshot(itemId, 0, 0, SniperState.JOINING);
-    }
 
-    public SniperSnapshot losing(String itemId) {
-        return new SniperSnapshot(itemId, 0, 0, SniperState.LOSING);
-    }
 
-    public SniperSnapshot closed() {
-        return new SniperSnapshot(itemId, lastPrice, lastBid, state.whenAuctionClosed());
-    }
-
-    public boolean isForSameItemAs(SniperSnapshot sniperSnapshot) {
-        return itemId.equals(sniperSnapshot.itemId);
-    }
-
-    public SniperSnapshot failed() {
-        return new SniperSnapshot(itemId, 0, 0, SniperState.FAILED);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = itemId != null ? itemId.hashCode() : 0;
-        result = 31 * result + lastPrice;
-        result = 31 * result + lastBid;
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "SniperSnapshot{" +
-                "itemId='" + itemId + '\'' +
-                ", lastPrice=" + lastPrice +
-                ", lastBid=" + lastBid +
-                '}';
-    }
 }
