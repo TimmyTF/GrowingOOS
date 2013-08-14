@@ -2,6 +2,8 @@ package unit;
 
 import auctionsniper.*;
 import auctionsniper.ui.SnipersTableModel;
+import auctionsniper.ui.UserRequestListener;
+import auctionsniper.ui.XMPPFailureReporter;
 import org.hamcrest.FeatureMatcher;
 import org.hamcrest.Matcher;
 import org.jmock.Expectations;
@@ -26,7 +28,8 @@ public class AuctionSniperTest {
     private final Mockery context = new Mockery();
     private final Auction auction = context.mock(Auction.class);
     private final SniperListener sniperListener = context.mock(SniperListener.class);
-    private final AuctionSniper sniper = new AuctionSniper(ITEM_ID, auction, sniperListener);
+    public static final UserRequestListener.Item ITEM = new UserRequestListener.Item(ITEM_ID, 1234);
+    private final AuctionSniper sniper = new AuctionSniper(ITEM, auction);
     private final States sniperState = context.states("sniper");
 
     @Test

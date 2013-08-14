@@ -9,8 +9,6 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
 import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.beans.HasPropertyWithValue.hasProperty;
 
@@ -88,6 +86,10 @@ public class FakeAuctionServer {
             final Message message = messages.poll(5, TimeUnit.SECONDS);
             assertThat(message, hasProperty("body", messageMatcher));
         }
+    }
+
+    public void sendInvalidMessageContaining(String brokenMessage) throws XMPPException {
+        currentChat.sendMessage(brokenMessage);
     }
 }
 

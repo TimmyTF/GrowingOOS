@@ -4,6 +4,10 @@ import auctionsniper.Main;
 import auctionsniper.SniperState;
 import auctionsniper.ui.MainWindow;
 
+import javax.swing.*;
+import java.io.IOException;
+
+import static org.hamcrest.Matchers.containsString;
 import static auctionsniper.ui.SnipersTableModel.textFor;
 
 /**
@@ -14,29 +18,26 @@ import static auctionsniper.ui.SnipersTableModel.textFor;
 public class ApplicationRunner {
     public static final String XMPP_HOSTNAME = "localhost";
 
-    private String itemId;
-
     public static final String SNIPER_ID = "sniper";
     public static final String SNIPER_XMPP_ID = "sniper@localhost/Auction";
     public static final String SNIPER_PASSWORD = "1";
 
     private AuctionSniperDriver driver;
+    private AuctionLogDriver logDriver = new AuctionLogDriver();
 
     public void startBiddingIn(final FakeAuctionServer... auctions) {
-        startSniper(auctions);
+        startSniper();
         for (FakeAuctionServer auction : auctions) {
-            driver.startBiddingFor(auction.getItemId());
-            driver.showsSniperStatus(auction.getItemId(), 0, 0, textFor(SniperState.JOINING));
+            openBiddingFor(auction, Integer.MAX_VALUE);
         }
     }
 
-    /*TODO: suspicious method; revisit it if smth won't work(and check the method 'startBiddingIn' as well)*/
-    private void startSniper(final FakeAuctionServer... auctions) {
+    private void startSniper() {
+        logDriver.clearLog();
         Thread thread = new Thread("Test Application") {
-            @Override
-            public void run() {
+            @Override public void run() {
                 try {
-                    Main.main(arguments(auctions));
+                    Main.main(XMPP_HOSTNAME, SNIPER_ID, SNIPER_PASSWORD);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -44,9 +45,23 @@ public class ApplicationRunner {
         };
         thread.setDaemon(true);
         thread.start();
+        makeSureAwtIsLoadedBeforeStartingTheDriverOnOSXToStopDeadlock();
+
         driver = new AuctionSniperDriver(1000);
         driver.hasTitle(MainWindow.APPLICATION_TITLE);
         driver.hasColumnTitles();
+    }
+
+    private void makeSureAwtIsLoadedBeforeStartingTheDriverOnOSXToStopDeadlock() {
+        try {
+            SwingUtilities.invokeAndWait(new Runnable() {
+                public void run() {
+                    // nothing
+                }
+            });
+        } catch (Exception e) {
+            throw new AssertionError(e);
+        }
     }
 
     protected static String[] arguments(FakeAuctionServer... auctions) {
@@ -60,7 +75,12 @@ public class ApplicationRunner {
         return arguments;
     }
 
-    public void showsSniperHasLostAuction(FakeAuctionServer auction, int lastPrice, int lastBid) {
+    public void startBiddingWithStopPrice(FakeAuctionServer auction, int stopPrice) {
+        startSniper();
+        openBiddingFor(auction, stopPrice);
+    }
+
+    public void hasShownSniperHasLostAuction(FakeAuctionServer auction, int lastPrice, int lastBid) {
         driver.showsSniperStatus(auction.getItemId(), lastPrice, lastBid, Main.STATUS_LOST);
     }
 
@@ -72,8 +92,26 @@ public class ApplicationRunner {
         driver.showsSniperStatus(auction.getItemId(), winningBid, winningBid, Main.STATUS_WINNING);
     }
 
-    public void showsSniperHasWonAuction(FakeAuctionServer auction, int lastPrice) {
+    public void hasShownSniperHasWonAuction(FakeAuctionServer auction, int lastPrice) {
         driver.showsSniperStatus(auction.getItemId(), lastPrice, lastPrice, Main.STATUS_WON);
+    }
+
+    public void hasShownSniperIsLosing(FakeAuctionServer auction, int lastPrice, int lastBid) {
+        driver.showsSniperStatus(auction.getItemId(), lastPrice, lastBid, textFor(SniperState.LOSING));
+    }
+
+    public void hasShownSniperHasFailed(FakeAuctionServer auction) {
+        driver.showsSniperStatus(auction.getItemId(), 0, 0, textFor(SniperState.FAILED));
+    }
+
+    public void reportsInvalidMessage(FakeAuctionServer auction, String brokenMessage) throws IOException {
+        logDriver.hasEntry(containsString(brokenMessage));
+    }
+
+    private void openBiddingFor(FakeAuctionServer auction, int stopPrice) {
+        final String itemId = auction.getItemId();
+        driver.startBiddingWithStopPrice(itemId, stopPrice);
+        driver.showsSniperStatus(itemId, 0, 0, textFor(SniperState.JOINING));
     }
 
     public void stop() {

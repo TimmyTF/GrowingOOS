@@ -1,7 +1,9 @@
 package unit;
 
+import auctionsniper.AuctionSniper;
 import auctionsniper.SniperSnapshot;
 import auctionsniper.ui.SnipersTableModel;
+import auctionsniper.ui.UserRequestListener;
 import org.hamcrest.Matcher;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
@@ -28,6 +30,8 @@ public class SnipersTableModelTest {
     private final Mockery context = new Mockery();
     private TableModelListener listener = context.mock(TableModelListener.class);
     private final SnipersTableModel model = new SnipersTableModel();
+    private static final String ITEM_ID = "item 0";
+    private final AuctionSniper sniper = new AuctionSniper(new UserRequestListener.Item(ITEM_ID, 234), null);
 
     @Before
     public void attachModelListener() {
@@ -46,28 +50,32 @@ public class SnipersTableModelTest {
         }
     }
 
-    @Test
-    public void notifiesListenersWhenAddingASniper() {
-        SniperSnapshot joining = SniperSnapshot.joining("item123");
+    @Test public void
+    notifiesListenersWhenAddingASniper() {
         context.checking(new Expectations() { {
             one(listener).tableChanged(with(anInsertionAtRow(0)));
         }});
+
         assertEquals(0, model.getRowCount());
-        model.addSniper(joining);
+
+        model.sniperAdded(sniper);
+
         assertEquals(1, model.getRowCount());
-        assertRowMatchesSnapshot(0, joining);
+        assertRowMatchesSnapshot(0, SniperSnapshot.joining(ITEM_ID));
     }
 
-    @Test
-    public void setsSniperValuesInColumns() {
-        SniperSnapshot joining = SniperSnapshot.joining("item id");
-        SniperSnapshot bidding = joining.bidding(555, 666);
+    @Test public void
+    setsSniperValuesInColumns() {
+        SniperSnapshot bidding = sniper.getSnapshot().bidding(555, 666);
         context.checking(new Expectations() {{
             allowing(listener).tableChanged(with(anyInsertionEvent()));
+
             one(listener).tableChanged(with(aChangeInRow(0)));
         }});
-        model.addSniper(joining);
+
+        model.sniperAdded(sniper);
         model.sniperStateChanged(bidding);
+
         assertRowMatchesSnapshot(0, bidding);
     }
 

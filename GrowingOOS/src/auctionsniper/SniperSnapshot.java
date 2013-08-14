@@ -35,11 +35,17 @@ public class SniperSnapshot {
     public SniperSnapshot bidding(int newLastPrice, int newLastBid) {
         return new SniperSnapshot(itemId, newLastPrice, newLastBid, SniperState.BIDDING);
     }
+
     public SniperSnapshot winning(int newLastPrice) {
         return new SniperSnapshot(itemId, newLastPrice, lastBid, SniperState.WINNING);
     }
+
     public static SniperSnapshot joining(String itemId) {
         return new SniperSnapshot(itemId, 0, 0, SniperState.JOINING);
+    }
+
+    public SniperSnapshot losing(String itemId) {
+        return new SniperSnapshot(itemId, 0, 0, SniperState.LOSING);
     }
 
     public SniperSnapshot closed() {
@@ -48,6 +54,10 @@ public class SniperSnapshot {
 
     public boolean isForSameItemAs(SniperSnapshot sniperSnapshot) {
         return itemId.equals(sniperSnapshot.itemId);
+    }
+
+    public SniperSnapshot failed() {
+        return new SniperSnapshot(itemId, 0, 0, SniperState.FAILED);
     }
 
     @Override

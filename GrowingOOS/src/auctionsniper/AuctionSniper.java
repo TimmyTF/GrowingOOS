@@ -1,23 +1,32 @@
 package auctionsniper;
 
+import auctionsniper.ui.Announcer;
+import auctionsniper.ui.UserRequestListener;
+
 /**
  * User: tflomin
  * Date: 29.07.13
  * Time: 18:35
  */
 public class AuctionSniper implements AuctionEventListener {
-    private final SniperListener sniperListener;
+    private final Announcer<SniperListener> listeners = Announcer.to(SniperListener.class);
     private final Auction auction;
     private SniperSnapshot snapshot;
+    private final UserRequestListener.Item item;
 
-    public AuctionSniper(String itemId, Auction auction, SniperListener sniperListener) {
-        this.sniperListener = sniperListener;
+    public AuctionSniper(UserRequestListener.Item item, Auction auction) {
+        this.item = item;
         this.auction = auction;
-        this.snapshot = SniperSnapshot.joining(itemId);
+        this.snapshot = SniperSnapshot.joining(item.identifier);
     }
 
     public void auctionClosed() {
         snapshot = snapshot.closed();
+        notifyChange();
+    }
+
+    public void auctionFailed() {
+        snapshot = snapshot.failed();
         notifyChange();
     }
 
@@ -28,14 +37,26 @@ public class AuctionSniper implements AuctionEventListener {
                 break;
             case FromOtherBidder:
                 int bid = price + increment;
-                auction.bid(bid);
-                snapshot = snapshot.bidding(price, bid);
+                if (item.allowsBid(bid)) {
+                    auction.bid(bid);
+                    snapshot = snapshot.bidding(price, bid);
+                } else {
+                    snapshot = snapshot.losing("" + price);
+                }
                 break;
         }
         notifyChange();
     }
 
+    public void addSniperListener(SniperListener listener) {
+        listeners.addListener(listener);
+    }
+
     private void notifyChange() {
-        sniperListener.sniperStateChanged(snapshot);
+        listeners.announce().sniperStateChanged(snapshot);
+    }
+
+    public SniperSnapshot getSnapshot() {
+        return snapshot;
     }
 }
